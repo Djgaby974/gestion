@@ -15,8 +15,14 @@ public class Categorie {
     private Long id;
     private String nom;
 
-    @OneToMany
-    private List<Tache> taches;
+    @ManyToMany
+    @JoinTable(
+            name = "categorie_taches",
+            joinColumns = @JoinColumn(name = "categorie_id"),
+            inverseJoinColumns = @JoinColumn(name = "taches_id")
+    )
+    private List<TacheSimple> taches;
+
 
     public String getNom() {
         return nom;
@@ -34,11 +40,11 @@ public class Categorie {
         this.id = id;
     }
 
-    public List<Tache> getTaches() {
+    public List<TacheSimple> getTaches() {
         return taches;
     }
 
-    public void setTaches(List<Tache> taches) {
+    public void setTaches(List<TacheSimple> taches) {
         this.taches = taches;
     }
 
