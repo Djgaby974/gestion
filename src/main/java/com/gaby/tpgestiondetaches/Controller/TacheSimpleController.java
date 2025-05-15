@@ -43,4 +43,15 @@ public class TacheSimpleController {
         tacheSimpleRepository.deleteById(id);
     }
 
+    @GetMapping("/terminees")
+    public List<TacheSimple> getTachesTerminees() {
+        return tacheSimpleRepository.findByTermineeTrue();
+    }
+
+    @GetMapping("/en-cours")
+    public List<TacheSimple> getTachesEnCours() {
+        return tacheSimpleRepository.findByTermineeFalse();
+    }
+
+
 }
