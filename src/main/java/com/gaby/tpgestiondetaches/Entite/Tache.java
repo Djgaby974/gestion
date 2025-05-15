@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "tache")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Tache {
+public abstract class Tache {
     @Id
     @GeneratedValue
 
